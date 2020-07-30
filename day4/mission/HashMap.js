@@ -5,12 +5,13 @@ class HashMap {
     constructor(bucketSize) {
         this.hash = new Hash(bucketSize);
         this.bucket = new Bucket(bucketSize);
+        this.bucketSize = bucketSize;
         this.mapSize = 0;
     }
 
     clear() {
-        this.bucket = new Bucket(bucketSize);
-        this.size = 0;
+        this.bucket = new Bucket(this.bucketSize);
+        this.mapSize = 0;
     }
 
     contains(key) {
@@ -32,19 +33,19 @@ class HashMap {
     }
 
     put(key, value) {
-        const code = this.getCode(key),
+        const code = this._getCode(key),
             res = this.bucket.add(code, key, value);
         if (res) this.mapSize++;
     }
 
     remove(key) {
-        const code = this.getItem(key),
+        const code = this._getCode(key),
             res = this.bucket.remove(code, key);
         if (res) this.mapSize--;
     }
 
     replace(key, value) {
-        const code = this.getCode(key),
+        const code = this._getCode(key),
             res = this.bucket.replace(code, key, value);
         if (!res) this.mapSize++;
     }
@@ -58,6 +59,4 @@ class HashMap {
     }
 
 }
-
-const hashMap = new HashMap(20);
-// hashMap.
+module.exports = HashMap;

@@ -62,11 +62,11 @@ class ArrayBucket {
 
         if (pos === undefined) {
             this.buckets[code].push([key, value]);
-            return true;
+            return false;
         }
 
         bucket[pos][1] = value;
-        return false;
+        return true;
     }
 
     print() {
@@ -75,28 +75,3 @@ class ArrayBucket {
 
 }
 module.exports = ArrayBucket;
-
-// const bucket = new ArrayBucket(5);
-// bucket.print();
-// // bucket.add(0,0,0);
-// for (let i = 0; i < 10; i++) {
-//     for (let j = 0; j < 2; j++) {
-//         const key = `${i%5}${j}`;
-//         bucket.add(i%5,key,j);
-//     }
-// }
-// bucket.print();
-// console.log(bucket.getKeys());
-// for (let i = 0; i < 10; i++) {
-//     (i%2) ? bucket.remove(i%5,`${i%5}1`) : bucket.remove(i%5,`${i%5}0`);
-//     console.log(bucket.getPos(i%5,`${i%5}0`),bucket.getPos(i,`${i%5}1`));
-//     console.log(bucket.getValue(i%5,`${i%5}0`),bucket.getValue(i%5,`${i%5}1`));
-//     bucket.replace(i%5,`${i%5}3`,3);
-//     console.log(bucket.getValue(i%5,`${i%5}0`),bucket.getValue(i%5,`${i%5}1`));
-//     (!i%2) ? bucket.replace(i%5,`${i%5}1`,3) : bucket.replace(i%5,`${i%5}0`,2);
-//     console.log(bucket.getValue(i%5,`${i%5}0`),bucket.getValue(i%5,`${i%5}1`));
-// }
-// bucket.print();
-// console.log(bucket.getKeys());
-// bucket.replace(0,'00','change!');
-// bucket.print()

@@ -1,6 +1,6 @@
 class Hash {
-    constructor (maxSize) {
-        this.maxSize = maxSize; 
+    constructor(maxSize) {
+        this.maxSize = maxSize;
     }
 
     getHashCode(key) {
@@ -15,8 +15,3 @@ class Hash {
 }
 
 module.exports = Hash;
-
-// const hash = new Hash(10);
-// for (let i = 0; i < 20; i++) {
-//     console.log(hash.getHashCode(i));
-// }
