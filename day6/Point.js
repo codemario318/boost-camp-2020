@@ -1,8 +1,15 @@
 module.exports = class Point {
-    constructor(x, y, min=0, max=24) {
+    _MIN = 0;
+    _MAX = 24;
+    constructor(x, y) {
+        if (pointValueValidation(x) || pointValueValidation(y)) {
+            throw new Error(`pointValueError: 좌표 허용 값은 ${_MIN} ~ ${_MAX} 입니다.`)
+        }
         this.x = x;
         this.y = y;
-        this.min = min;
-        this.max = max;
+    }
+
+    pointValueValidation(p) {
+        return (x < this._MIN || x > this._MAX)? true:false;
     }
 }
