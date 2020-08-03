@@ -3,7 +3,6 @@ const Polygon = require('./Polygon');
 class Rectangle extends Polygon {
     constructor(points) {
         super(points);
-        console.log(points);
         if (!this._pointsValueValidation(points)) {
             throw new Error('RectanglePointsError');
         }
