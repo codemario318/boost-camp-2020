@@ -1,14 +1,15 @@
 const separator = new Set(["[", "]"]);
 const strSeparator = new Set(['\'', '\"', '\`']);
 
-const ArrParser = (words) => {
+const ArrParser = (tokens) => {
     const tree = [];
     const inputError = new Error("입력 형식 에러");
     let brkNum = 0;
-    for (let i = 0; i < words.length; i++) {
-        const word = words[i];
 
-        if (word === ']') {
+    for (let i = 0; i < tokens.length; i++) {
+        const token = tokens[i];
+
+        if (token === ']') {
             const child = [];
             let cur = tree.pop();
 
@@ -20,40 +21,37 @@ const ArrParser = (words) => {
 
             tree.push(toArrToken(child));
             brkNum--;
-        } else if (word === '[') {
-            tree.push(word);
+        } else if (token === '[') {
+            tree.push(token);
             brkNum++;
         }
-        else tree.push(toToken(word));
+        else tree.push(toToken(token));
 
     }
     if (brkNum !== 0) throw inputError;
     return tree;
 }
 
-const toToken = (word) => {
-    const token = { 'type': typeOf(word), 'value': word };
-    return token;
-};
-
 const toArrToken = (child) => {
     const token = { 'type': 'Array', 'child': child };
     return token;
 };
 
-const typeOf = (word) => {
-    if (word === null) return "NULL";
-    else if (Number.isInteger(word)) return 'Number';
-    else return 'String';
+const Lexer = (words) => words.map((word) => (separator.has(word) ? word : toToken(word)));
+
+const toToken = (word) => {
+    const type = typeOf(word);
+    const token = { 'type': type, value: (type === 'String') ? word.slice(1, word.length - 1) : word };
+    return token;
+};
+
+const typeOf = (token) => {
+    if (token === 'null') return "NULL";
+    else if (strSeparator.has(token[0])) return 'String';
+    else return 'Number';
 };
 
 const Tokenizer = (str) => {
-    const toVal = (token) => {
-        if (token === 'null') return null;
-        else if (token === '') return undefined;
-        else return Number(token);
-    }
-
     const text = str.replace(/(\s*)/g, "");
     const tokens = [];
     let temp = [];
@@ -61,27 +59,28 @@ const Tokenizer = (str) => {
     for (const char of text) {
         if (strSeparator.has(temp[0])) {
             if (temp[0] == char) {
-                tokens.push(temp.slice(1).join(''));
+                tokens.push(temp.join('') + char);
                 temp = [];
             }
             else temp.push(char);
         } else {
             if (char === ',') {
-                tokens.push(toVal(temp.join('')));
+                tokens.push(temp.join(''));
                 temp = [];
             } else if (separator.has(char)) {
-                tokens.push(toVal(temp.join('')));
+                tokens.push(temp.join(''));
                 tokens.push(char);
                 temp = [];
             } else temp.push(char);
         }
     }
 
-    return tokens.filter((c) => c !== undefined);
+    return tokens.filter((c) => c !== '');
 };
 
 module.exports = {
     Tokenizer,
+    Lexer,
     ArrParser,
 }
 
@@ -97,12 +96,14 @@ const strs = [
     // "['a'][['b']",
     // "['a']['b'",
     // "[][]",
-    '[[[[[]]]]]',
+    // '[[[[[]]]]]',
+    "[[1,[2,[3],'hello']]",
 ];
 
 strs.forEach(str => {
     try {
-        console.dir(ArrParser(Tokenizer(str)), { depth: null });
+        console.dir( ArrParser(Lexer(Tokenizer(str))), { depth: null });
+        // console.log(Lexer(Tokenizer(str)))
     } catch (e) {
         console.error(e.message);
     }
