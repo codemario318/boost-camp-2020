@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./relay13.css">
+    <title>만리안</title>
+</head>
+<body>
+    <div class="wraper">
+        <header class="web-header">
+            <h1 class="web-logo">
+                <a href="#" class="web-logo-link"></a>
+            </h1>
+        </header>
+
+        <main class="web-main">
+            <div class="form-area">
+                <h2 class="form-title">글작성</h2>
+                <form action="./" method="post">
+                    <div class="form-group">
+                        <label for="content-title" class="form-item-title">제목</label>
+                        <input type="text" name="content-title" id="content-title" class="form-content-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="content-body" class="form-item-title">내용</label>
+                        <textarea name="content-body" id="content-body" class="form-content-body"></textarea>
+                    </div>
+                    
+                    <div class="form-group button-group">
+                        <button type="reset" class="form-button-reset">리셋</button>
+                        <button type="submit" class="form-button-submit" >전송</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="posts-wrap">
+                <h2 class="posts-title">글목록</h2>
+                <ul class="posts">
+                    <li class="post">
+                        <div class="post-head">
+                            제목:
+                            <strong class="title">
+                                What is Lorem Ipsum?
+                            </strong>
+                        </div>
+                        <div class="post-body">
+                            <div class="post-body-title">내용:</div>
+                            <span class="good">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            </span>
+                            <span class="soso">
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            </span>
+                            <span class="bad">
+                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            </span>
+                            <span class="good">
+                                It has survived not only five centuries, but also the leap into electronic typesetting,remaining essentially unchanged. 
+                            </span>
+                            <span class="bad">
+                                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <footer class="web-footer">
+            <p>&copy; 2020 부스트캠프 챌린지 릴레이 프로젝트</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+@font-face { 
+    font-family: 'DOSMyungjo'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSMyungjo.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+body, h1, h2, h3, h4, h5, h6,
+input, textarea, li, ul, ol, button {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+}
+
+body, input, textarea,button {
+    font-family: "DOSMyungjo";
+    font-size: 20px;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+strong {
+    font-weight: normal;
+}
+
+.wraper {
+    background-color: #f6f8fa;
+}
+
+.web-header {
+    border-bottom: 3px dashed slateblue;
+    padding: 10px 0;
+}
+
+.web-main {
+    width: 500px;
+    margin: auto;
+}
+
+.web-logo {
+    width: 300px;
+    height: 100px;
+    margin: auto;
+}
+
+.web-logo-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('./logo.jpg') no-repeat;
+}
+
+.form-title {
+    margin-top: 20px;
+    line-height: 40px;
+    font-size: 34px;
+}
+
+.form-group {
+    margin-top: 15px;
+}
+
+.form-group.button-group {
+    text-align: right;
+}
+
+.form-item-title {
+    line-height: 30px;
+    font-size: 24px;
+    margin-top: 10px;
+    display: block;
+}
+
+.form-content-input {
+    border: 2px solid slateblue;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.form-content-body {
+    display: block;
+    border: 2px solid slateblue;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    resize: none;
+    height: 100px;
+}
+
+.form-button-reset {
+    border: 2px solid slateblue;
+    width: 80px;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #fa7d09;
+    color: #fff;
+}
+
+.form-button-submit {
+    border: 2px solid slateblue;
+    width: 80px;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #ff4301;
+    color: #fff;
+}
+
+.posts {
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+.posts-title {
+    margin-top: 20px;
+    line-height: 40px;
+    font-size: 34px;
+}
+
+.post {
+    border: 2px solid slateblue;   
+    border-radius: 10px; 
+}
+
+.post-head {
+    line-height: 30px;
+    padding: 10px;
+}
+
+.post-head .title {
+    font-weight: bold;
+}
+
+.post-body {
+    border-top: slateblue 2px solid;
+    padding: 10px;
+}
+
+.good {
+    color: #431c5d;
+}
+
+.soso {
+    color: #cdd422;
+}
+
+.bad {
+    color: #e05915;
+}
+
+.web-footer {
+    border-top: 3px dashed slateblue;
+    text-align: center;
+    margin: 40px auto 0;
+    padding: 20px 0;
+    font-size: 24px;
+}
