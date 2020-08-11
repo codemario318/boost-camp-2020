@@ -1,0 +1,10 @@
+init hello
+status
+checkout hello
+new readme
+update readme
+add readme
+commit modified file
+log
+push
+status remote hello
